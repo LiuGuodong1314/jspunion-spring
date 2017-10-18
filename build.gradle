@@ -1,3 +1,28 @@
 group 'com.jspunion'
 version '1.0-SNAPSHOT'
 
+subprojects () {
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    ext {
+        // springVersion = "4.3.12.RELEASE"
+        springVersion = "5.0.0.RELEASE"
+
+        junitVersion = "4.12"
+    }
+
+    dependencies {
+        testCompile (
+                "junit:junit:${junitVersion}",
+                // https://mvnrepository.com/artifact/org.springframework/spring-test
+               "org.springframework:spring-test:${springVersion}"
+        )
+    }
+}
